@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap');
+
+/* Variables de colores */
+:root {
+    --background-color: #000;
+    --text-color: #ffffff;
+    --link-hover-color: #005eff;
+    --overlay-background-color: rgba(0, 0, 0, 0.5);
+    --icon-color: #ffffff;
+    --icon-hover-color: #005eff;
+}
+
+*
+{
+    font-family: 'SUSE', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--background-color);
+}  
+
+html, body {
+    overflow: hidden;
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.column {
+    flex: auto; /* Ajusta el tamaño de las columnas */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    height: 100vh;
+}
+
+.column2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Oculta cualquier parte de la imagen que se salga del contenedor */
+}
+
+
+.column3 {
+    width: 80px; /* Tamaño fijo para la columna 3 */
+    min-width: 80px;
+    max-width: 80px;
+    flex-shrink: 0; /* Evita que esta columna se reduzca */
+}
+
+.column4 {
+    position: absolute;
+    right: -700px;
+    width: 700px;
+    transition: right 0.5s ease;
+}
+
+.imagen {
+    width: auto;
+    height: 80%;
+    object-fit: cover;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    font-size: 40px;
+}
+
+nav ul li {
+    margin: 10px 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color:var(--text-color);
+}
+
+nav ul li a:hover {
+    color: #005eff; /* Nuevo color cuando el puntero está sobre el enlace */
+}
+
+.icons {
+    margin-right: 8px;
+    font-size: 50px; /* Ajusta el tamaño del icono a 50px */
+    min-width: 80px;
+    max-width: 80px;
+    color: var( --icon-color);
+}
+
+.icons:hover {
+    margin-right: 8px;
+    font-size: 50px; /* Ajusta el tamaño del icono a 50px */
+    color: var(--icon-hover-color)
+}
+
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 80px;
+    height: 24px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 0px;
+    color: var( --icon-color);
+}
+
+.overlay {
+    position: absolute;
+    width: 60%;
+    background: var(--overlay-background-color); /* Fondo negro semi-transparente */
+    color:var(--text-color);
+    display: flex;
+    font-size: 28px;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 10; /* Asegura que el overlay esté sobre la imagen */
+}
+
+/* Animaciones */
+
+.slide-left {
+    animation: slideLeft 0.5s forwards;
+}
+
+@keyframes slideLeft {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-100vw + 100px));
+
+    }
+}
+
+.slide-right {
+    animation: slideright 0.5s forwards;
+}
+
+@keyframes slideright {
+    0% {
+        transform:  translateX(calc(-100vw + 100px));
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+@media (max-width: 690px) {
+    .imagen {
+        width: 85%;
+    }
+    .icons {
+        font-size: 30px; 
+    }
+
+}
+
